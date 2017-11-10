@@ -27,7 +27,6 @@ int main() {
 
 string juego(){
   Pieza*** tabla = creartablero();
-  imprimirtabla(tabla);
   string jugador1;
   cout << "Ingrese el nombre del primer jugador: ";
   cin>>jugador1;

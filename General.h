@@ -3,7 +3,7 @@
 
 class General : public Pieza{
 	public:
-		General(int,int,string);
+		General(int,int,char);
     Pieza*** Mover(Pieza***);
 		~General();
 };

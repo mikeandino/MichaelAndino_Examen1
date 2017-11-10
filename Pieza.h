@@ -5,12 +5,12 @@
 using namespace std;
 
 class Pieza{
-protected:
+public:
     int x;
     int y;
-    string color;
+    char color;
 public:
-    Pieza(int, int, string);
+    Pieza(int, int, char);
     virtual Pieza*** Mover(Pieza***);
     virtual ~Pieza();
 };

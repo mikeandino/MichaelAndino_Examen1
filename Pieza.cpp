@@ -1,6 +1,6 @@
 #include "Pieza.h"
 
-  Pieza::Pieza(int px, int py, string pcolor){
+  Pieza::Pieza(int px, int py, char pcolor){
       this->x=px;
       this->y=py;
       this->color=pcolor;

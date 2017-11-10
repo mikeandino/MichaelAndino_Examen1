@@ -1,6 +1,6 @@
 #include "Marine.h"
 
-Marine::Marine(int px, int py, string pcolor):Pieza(px,py,pcolor){
+Marine::Marine(int px, int py, char pcolor):Pieza(px,py,pcolor){
 }
 
 Pieza*** Marine::Mover(Pieza*** tabla){

@@ -1,14 +1,16 @@
-#ifndef PIEZA_H
-#define PIEZA_H
+#pragma once
+#include <iostream>
 #include <string>
 
+using namespace std;
+
 class Pieza{
-public:
+protected:
     int x;
     int y;
     string color;
+public:
     Pieza(int, int, string);
     virtual Pieza*** Mover(Pieza***);
-    ~ Pieza();
+    virtual ~Pieza();
 };
-#endif

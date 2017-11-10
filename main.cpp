@@ -1,2 +1,8 @@
 #include <iostream>
-#include 
+#include "Pieza.h"
+#include "General.h"
+#include "Marine.h"
+
+int main() {
+  
+}

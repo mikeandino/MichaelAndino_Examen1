@@ -6,7 +6,11 @@
       this->color=pcolor;
   }
 
-  Pieza*** Mover(Pieza*** tabla) {
-    /* code */
-  }
+Pieza*** Pieza::Mover(Pieza*** tabla) {
+    cout << "Mover" << '\n';
+    return tabla;
+}
+
+Pieza::~Pieza(){
+
 }

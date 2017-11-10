@@ -1,12 +1,9 @@
-#ifndef GENERAL_H
-#define GENERAL_H
-
+#pragma once
 #include "Pieza.h"
 
 class General : public Pieza{
 	public:
-		General();
-    Pieza*** Mover();
+		General(int,int,string);
+    Pieza*** Mover(Pieza***);
+		~General();
 };
-
-#endif

@@ -43,8 +43,8 @@ string juego(){
 }
 
 bool turno(bool turnos,Pieza*** tabla){
-  imprimirtabla(tabla);
   do {
+    imprimirtabla(tabla);
       if (turnos) {
       cout << "Turno de Jugador 1" << '\n'
           << "Ingrese una posicion: ";
@@ -55,7 +55,7 @@ bool turno(bool turnos,Pieza*** tabla){
         cout << "Posicion invalida: ";/* message */
         cin>>posicion;
       }
-      while (((posicion.at(0)<65||posicion.at(0)<72)&&(posicion.at(0)<97||posicion.at(0)>104))||(posicion.at(1)<48||posicion.at(1)>55)) {
+      while (((posicion.at(0)<65||posicion.at(0)>72)&&(posicion.at(0)<97||posicion.at(0)>104))||(posicion.at(1)<48||posicion.at(1)>55)) {
         cout << "Posicion invalida: ";
         cin>>posicion;
       }
@@ -68,14 +68,12 @@ bool turno(bool turnos,Pieza*** tabla){
       int y = posicion.at(1)-48;
       if (tabla[y][x]!=NULL) {
         if (tabla[y][x]->color=='n') {
-          cout << "Prueba1" << '\n';
           cout << "Pieza no valido." << '\n';
         }else{
-          cout << "Pieza si valida." << '\n';
+          tabla=tabla[y][x]->Mover(tabla);
           turnos = false;
         }
       }else{
-        cout << "Prueba2" << '\n';
         cout << "Pieza no valido." << '\n';
       }
     }else{
@@ -84,16 +82,15 @@ bool turno(bool turnos,Pieza*** tabla){
           string posicion;
           cin>>posicion;
           while (posicion.size()!=2) {
-            cout << "Prueba 1" << '\n';
-            cout << "Posicion invalida: ";/* message */
+            cout << "Posicion invalida: ";
             cin>>posicion;
           }
-          while (((posicion.at(0)<65||posicion.at(0)<72)&&(posicion.at(0)<97||posicion.at(0)>104))||(posicion.at(1)<48||posicion.at(1)>55)) {
+          while (((posicion.at(0)<65||posicion.at(0)>72)&&(posicion.at(0)<97||posicion.at(0)>104))||(posicion.at(1)<48||posicion.at(1)>55)) {
             cout << "Posicion invalida: ";
             cin>>posicion;
           }
           int x;
-          if ((posicion.at(0)>64&&posicion.at(0)<73)) {/* message */
+          if ((posicion.at(0)>64&&posicion.at(0)<73)) {
             x=posicion.at(0)-65;
           }else{
             x=posicion.at(0)-97;
@@ -101,22 +98,43 @@ bool turno(bool turnos,Pieza*** tabla){
           int y = posicion.at(1)-48;
           if (tabla[y][x]!=NULL) {
             if (tabla[y][x]->color=='b') {
-              cout << "Prueba1" << '\n';
               cout << "Pieza no valido." << '\n';
             }else{
-              cout << "Pieza si valida." << '\n';
+              tabla=tabla[y][x]->Mover(tabla);
               turnos = true;
             }
           }else{
-            cout << "Prueba2" << '\n';
             cout << "Pieza no valido." << '\n';
           }
     }
+    cout << '\n';
   } while(!ganador(tabla));
+  if (turnos) {
+    return true;
+  }else{
+    return false;
+  }
 }
 
 bool ganador(Pieza*** tabla){
-  return false;
+  bool j1=true;
+  bool j2=true;
+  for (int i = 0; i < 8; i++) {
+    for (int j = 0; j < 8; j++) {
+      if (tabla[i][j]) {
+        if (tabla[i][j]->color=='n') {
+          j1=false;
+        }else{
+          j2=false;
+        }
+      }
+    }
+  }
+  if (j1||j2) {
+    return true;
+  }else{
+    return false;
+  }
 }
 
 Pieza*** creartablero(){
